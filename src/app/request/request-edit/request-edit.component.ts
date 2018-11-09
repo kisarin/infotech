@@ -15,8 +15,8 @@ export class RequestEditComponent implements OnInit{
   reqId: number;
   reqTypesDict = [
     {id: 0, value: 'Обращение по телефону'},
-    {id: 0, value: 'Обращение по ЕПГУ'},
-    {id: 0, value: 'МФЦ'}
+    {id: 1, value: 'Обращение по ЕПГУ'},
+    {id: 2, value: 'МФЦ'}
   ];
   reqForm: FormGroup;
 
@@ -59,7 +59,13 @@ export class RequestEditComponent implements OnInit{
   onSubmit() {
     if (this.editMode) {
       console.log(this.reqForm.value);
-      this.reqServ.updateRequest(this.reqId, this.reqForm.value);
+      const req = new PeopleRequest(0, '2018-11-08', 1, 'Обращение за ЖКХ', 1);
+      req.id = this.reqId;
+      req.date = this.reqForm.get('reqdate').value;
+      req.description = this.reqForm.get('reqdescr').value;
+      req.type = +this.reqForm.get('reqtype').value;
+      req.userId = 1;
+      this.reqServ.updateRequest(this.reqId, req);
     }
     else {
       this.reqServ.addRequest(this.reqForm.value);

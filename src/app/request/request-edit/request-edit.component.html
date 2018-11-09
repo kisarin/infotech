@@ -11,7 +11,7 @@
         <label for="reqtype">Характер обращения</label>
         <select class="form-control" id="reqtype"
                 formControlName="reqtype">
-          <option *ngFor="let type of reqTypesDict; let i = index" [value]="i">{{type.value}}</option>
+          <option *ngFor="let type of reqTypesDict" [value]="type.id">{{type.value}}</option>
         </select>
       </div>
       <div class="form-group">

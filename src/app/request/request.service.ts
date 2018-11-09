@@ -30,8 +30,12 @@ export class RequestService {
     this.requestsChanged.next(this.requests.slice());
   }
 
-  updateRequest(index: number, updRequest: PeopleRequest) {
-    this.requests[index] = updRequest;
+  updateRequest(id: number, updRequest: PeopleRequest) {
+    this.requests.map((req, i) => {
+      if (req.id == id) {
+        this.requests[i] = updRequest;
+      }
+    });
     this.requestsChanged.next(this.requests.slice());
   }
 
