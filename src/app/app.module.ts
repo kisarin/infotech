@@ -8,6 +8,7 @@ import {HomeComponent} from "./home.component";
 import {PageNotFoundComponent} from "./not-found.component";
 import {RequestsModule} from "./request/requests.module";
 import {AppRoutingModule} from "./app.routing.module";
+import {RequestService} from "./request/request.service";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import {AppRoutingModule} from "./app.routing.module";
     RequestsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [RequestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

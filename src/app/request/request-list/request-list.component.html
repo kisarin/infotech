@@ -9,10 +9,10 @@
       <th>Действия</th>
     </tr>
     </thead>
-    <tbody *ngFor="let request of requests">
+    <tbody *ngFor="let request of requests; let i = index">
       <tr>
         <td>{{ request.date }}</td>
-        <td>{{ request.type }}</td>
+        <td>{{ reqTypesDict[request.type].value }}</td>
         <td>{{ request.description }}</td>
         <td>{{ request.userId }}</td>
         <td>

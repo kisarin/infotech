@@ -1,5 +1,5 @@
 import {NgModule} from "@angular/core";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {RequestsComponent} from "./requests.component";
 import {RequestsRoutingModule} from "./requests-routing.module";
@@ -17,9 +17,10 @@ import {RequestEditComponent} from "./request-edit/request-edit.component";
   imports: [
     FormsModule,
     CommonModule,
+    ReactiveFormsModule,
     RequestsRoutingModule
   ],
-  providers: [RequestService]
+  providers: []
 })
 
 export class RequestsModule {}

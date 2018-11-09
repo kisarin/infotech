@@ -11,6 +11,12 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class RequestListComponent implements OnInit {
   requests: PeopleRequest[];
 
+  reqTypesDict = [
+    {id: 0, value: 'Обращение по телефону'},
+    {id: 0, value: 'Обращение по ЕПГУ'},
+    {id: 0, value: 'МФЦ'}
+  ];
+
   constructor (private reqService: RequestService,
   private route: ActivatedRoute, private router: Router) {}
 
@@ -23,6 +29,7 @@ export class RequestListComponent implements OnInit {
   }
 
   onEditRequest(index: number) {
+    console.log('Open ' + index + ' request.' )
     this.router.navigate([index, 'edit'], {relativeTo: this.route});
   }
 
